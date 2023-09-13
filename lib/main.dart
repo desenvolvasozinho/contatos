@@ -48,6 +48,9 @@ class _TelaContatonState extends State<TelaContato> {
     });
   }
 
+  // Este método é responsável por salvar a lista de contatos no SharedPreferences.
+  // Ele começa obtendo uma instância de SharedPreferences.
+  // Em seguida, converte a lista de contatos _contatos em uma lista de strings JSON
   void _salvarContatos() async {
     final prefs = await SharedPreferences.getInstance();
     final contatosJson = _contatos.map((contato) {
@@ -56,6 +59,8 @@ class _TelaContatonState extends State<TelaContato> {
     prefs.setStringList('contatos', contatosJson);
   }
 
+  // Este método é chamado quando você deseja adicionar um novo contato à lista.
+  // Ele cria um novo objeto Contato com base nos valores fornecidos nos campos
   void _adicionarContato() {
     setState(() {
       final novoContato = Contato(
